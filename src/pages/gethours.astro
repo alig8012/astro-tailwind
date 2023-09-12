@@ -1,0 +1,23 @@
+---
+import TimeCard from "../components/TimeCard.astro";
+const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=zb_ohdmXKwbdO-jM40j2bxkvw0FkEbbeeXVog2j0ZtTZi4p1mAjq0tyw4B5yNjAPRd8F8Tnv9RT5YUw3sbyZ_NiEo7vK45Wfm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnPt0fRvrviKVVVFFIKMpQdk74UtKKjXChBeEkXPzMrzrZ-IsnyA6y6zSQoPVcerzkqWGTw2Hln-oRcSCm4uC8OMSOmOfBLsZFdz9Jw9Md8uu&lib=MQ-GLa8PnE0cAsDDw8vPLdMxZ8ue2Y49X");
+const { data } = await res.json();
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>gethors</title>
+	</head>
+	<body>
+		<div class="grid gap-6 place-content-center min-h-screen">
+			<title />
+		{data.map((i) => <TimeCard data={i} />)}
+		</div>
+	</body>
+</html>
